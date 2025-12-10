@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input { padding: 8px; margin: 8px 0; width: 100%; }
+        button { padding: 10px 20px; cursor: pointer; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Page</h2>
+
+    <input type="text" id="regName" placeholder="Enter Name">
+    <input type="password" id="regPassword" placeholder="Enter Password">
+
+    <p id="regError" class="error"></p>
+
+    <button onclick="register()">Register</button>
+
+    <script>
+        function register() {
+            let name = document.getElementById("regName").value;
+            let pwd = document.getElementById("regPassword").value;
+
+            if (name === "" || pwd === "") {
+                document.getElementById("regError").innerText = "Please fill the required fields!";
+                return;
+            }
+
+            // Storing in local storage
+            localStorage.setItem("username", name);
+            localStorage.setItem("password", pwd);
+
+            alert("Registered successfully!");
+            window.location.href = "login.html"; 
+        }
+    </script>
+
+</body>
+</html>

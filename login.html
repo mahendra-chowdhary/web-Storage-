@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input { padding: 8px; margin: 8px 0; width: 100%; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Login Page</h2>
+
+    <input type="text" id="loginName" placeholder="Enter Name">
+    <input type="password" id="loginPassword" placeholder="Enter Password">
+
+    <p id="loginError" class="error"></p>
+
+    <button onclick="login()">Login</button>
+
+    <script>
+        function login() {
+            let name = document.getElementById("loginName").value;
+            let pwd = document.getElementById("loginPassword").value;
+
+            let storedName = localStorage.getItem("username");
+            let storedPwd = localStorage.getItem("password");
+
+            if (name === storedName && pwd === storedPwd) {
+                alert("Login successful!");
+                window.location.href = "home.html";
+            } else {
+                document.getElementById("loginError").innerText = "Invalid username or password!";
+            }
+        }
+    </script>
+
+</body>
+</html>
